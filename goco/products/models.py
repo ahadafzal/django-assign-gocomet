@@ -13,7 +13,7 @@ class Product(models.Model):
 	product_name = models.CharField(max_length=20, blank=False)
 	product_image = models.ImageField(upload_to='', blank=True)
 	product_price = models.DecimalField(max_digits=10, decimal_places=2)
-	product_chosen = models.CharField(max_length=20, choices=PRODUCT_CHOICES)
+	product_chosen = models.CharField(max_length=20, choices=PRODUCT_CHOICES,default='1')
 	product_date = models.DateTimeField(default=timezone.now)
 	
 	def __str__(self):
