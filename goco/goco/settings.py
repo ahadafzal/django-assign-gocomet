@@ -25,7 +25,7 @@ SECRET_KEY = 'zr$=i9)^b+2$%xbs_8fk=yv^1%5b@uvk^yy3rm65i)(7s91)y7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['assignm-gocomet.herokuapp.com','localhost']
 
 
 # Application definition
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'goco.urls'
@@ -120,10 +121,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+#finale commit 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+# os.path.join(BASE_DIR,"products/static")
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+# STATICFILES_STORsAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
 MEDIA_URL = '/logo/'
 
